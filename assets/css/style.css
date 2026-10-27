@@ -1,0 +1,458 @@
+/* =====================================================================
+   Rebrote — CSS próprio (o Bootstrap entra pelo CDN)
+   Só entra aqui o que o Bootstrap não resolve: paleta, textura e ritmo.
+   ===================================================================== */
+
+/* ---------- 1. Tokens (variáveis CSS) -------------------------------- */
+:root {
+  /* Paleta terrosa: nada de azul/roxo genérico — a marca é fibra natural */
+  --rb-ink:        #1e2a22;   /* verde-carvão: texto principal */
+  --rb-ink-soft:   #43564a;   /* texto secundário */
+  --rb-forest:     #24402f;   /* verde profundo: navbar, rodapé, slide 3 */
+  --rb-sage:       #7d9b7a;   /* verde-sálvia: slide 1 */
+  --rb-clay:       #b4653a;   /* terracota: acento único da marca */
+  --rb-clay-dark:  #95502c;
+  --rb-sand:       #f4f1e8;   /* areia: fundo alternado */
+  --rb-paper:      #fbfaf5;   /* papel: fundo principal */
+  --rb-line:       #dcd7c8;   /* linhas e bordas */
+
+  --rb-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --rb-font-body:    "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --rb-radius: 2px;           /* quase reto: retângulo arredondado é o clichê do momento */
+}
+
+/* ---------- 2. Base -------------------------------------------------- */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--rb-font-body);
+  color: var(--rb-ink);
+  background: var(--rb-paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .navbar-brand, .pillar-num, .piece-price {
+  font-family: var(--rb-font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+p { text-wrap: pretty; }
+
+/* Acessibilidade: pular direto para o conteúdo */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1100;
+  background: var(--rb-ink);
+  color: #fff;
+  padding: .6rem 1rem;
+}
+.skip-link:focus { left: .5rem; top: .5rem; }
+
+/* Foco visível de verdade (o Bootstrap já tem, isto só garante no tema claro) */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, .form-check-input:focus-visible {
+  outline: 2px solid var(--rb-clay);
+  outline-offset: 2px;
+}
+
+/* ---------- 3. Botões próprios --------------------------------------- */
+.btn-accent {
+  background: var(--rb-clay);
+  border-color: var(--rb-clay);
+  color: #fff;
+  border-radius: var(--rb-radius);
+  font-weight: 600;
+}
+.btn-accent:hover, .btn-accent:focus {
+  background: var(--rb-clay-dark);
+  border-color: var(--rb-clay-dark);
+  color: #fff;
+}
+
+.btn-outline-ink {
+  border: 1px solid var(--rb-ink);
+  color: var(--rb-ink);
+  border-radius: var(--rb-radius);
+  font-weight: 600;
+}
+.btn-outline-ink:hover, .btn-outline-ink:focus {
+  background: var(--rb-ink);
+  color: var(--rb-paper);
+}
+
+.btn-link.btn-reset {
+  color: var(--rb-ink-soft);
+  text-decoration: underline;
+  font-size: .95rem;
+  padding-left: 0;
+}
+/* Dentro da seção escura do formulário, este link precisa ser claro */
+.section-form .btn-link.btn-reset { color: rgba(251, 250, 245, .78); }
+.section-form .btn-link.btn-reset:hover,
+.section-form .btn-link.btn-reset:focus { color: var(--rb-paper); }
+
+/* ---------- 4. Navbar e marca ---------------------------------------- */
+.rebrote-nav {
+  background: var(--rb-forest);
+  padding-top: .55rem;
+  padding-bottom: .55rem;
+}
+.rebrote-nav .navbar-brand {
+  color: var(--rb-paper);
+  font-size: 1.35rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+.brand-mark {
+  width: 14px; height: 14px;
+  display: inline-block;
+  background: var(--rb-clay);
+  /* um losango girado: lembra um broto, não um logo genérico */
+  transform: rotate(45deg);
+  border-radius: 1px;
+}
+.rebrote-nav .nav-link {
+  color: rgba(251, 250, 245, .82);
+  font-weight: 600;
+}
+.rebrote-nav .nav-link:hover,
+.rebrote-nav .nav-link:focus { color: #fff; }
+
+.rebrote-nav .navbar-toggler {
+  border-color: rgba(251, 250, 245, .35);
+}
+.rebrote-nav .navbar-toggler-icon {
+  /* ícone do Bootstrap em SVG, recolorido para o fundo escuro */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28251,250,245,0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ---------- 5. Ritmo das seções -------------------------------------- */
+.section       { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+.section-tight { padding: clamp(2rem, 5vw, 3.5rem) 0 0; }
+.section-alt   { background: var(--rb-sand); }
+
+.section-title {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  margin-bottom: .75rem;
+}
+.section-sub {
+  color: var(--rb-ink-soft);
+  max-width: 52ch;
+}
+
+.eyebrow {
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--rb-clay);
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+/* ---------- 6. Abertura (hero) --------------------------------------- */
+.hero {
+  padding: clamp(3rem, 8vw, 6rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+  background:
+    linear-gradient(180deg, rgba(244,241,232,0) 60%, rgba(244,241,232,.6) 100%),
+    var(--rb-paper);
+}
+.hero-title { line-height: 1.02; margin-bottom: 1rem; }
+.hero-title em {
+  font-style: italic;
+  color: var(--rb-clay);
+}
+.hero-lead {
+  color: var(--rb-ink-soft);
+  max-width: 46ch;
+  font-size: 1.12rem;
+}
+.hero-note {
+  font-size: .85rem;
+  color: var(--rb-ink-soft);
+  border-left: 2px solid var(--rb-line);
+  padding-left: .75rem;
+}
+
+/* Painel decorativo: textura de trama (tecido), não ilustração falsa */
+.hero-panel {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--rb-line);
+  background: var(--rb-sand);
+  overflow: hidden;
+}
+.weave {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg,  rgba(30,42,34,.16) 0 2px, transparent 2px 11px),
+    repeating-linear-gradient(90deg, rgba(30,42,34,.16) 0 2px, transparent 2px 11px);
+}
+.weave-a { inset: 0 40% 35% 0; background-color: #e7e3d5; }
+.weave-b {
+  inset: 35% 0 0 40%;
+  background-color: #ddd8c6;
+  transform: rotate(90deg);   /* tramas em direções diferentes: é o que um tecido faz */
+}
+.hero-badge {
+  position: absolute;
+  right: clamp(.75rem, 3vw, 1.5rem);
+  bottom: clamp(.75rem, 3vw, 1.5rem);
+  background: var(--rb-forest);
+  color: var(--rb-paper);
+  padding: 1rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+.hero-badge-num { font-family: var(--rb-font-display); font-size: 2.4rem; line-height: 1; }
+.hero-badge-txt { font-size: .82rem; line-height: 1.3; }
+
+/* ---------- 7. Carousel ---------------------------------------------- */
+#carouselRebrote { border: 1px solid var(--rb-line); }
+.slide {
+  min-height: clamp(230px, 34vw, 340px);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.slide::after {   /* a mesma textura de trama, aplicada como camada */
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.07) 0 3px, transparent 3px 14px);
+  pointer-events: none;
+}
+.slide-inner {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  max-width: 46rem;
+  color: var(--rb-paper);
+}
+.slide-step {
+  font-size: .78rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  opacity: .78;
+  margin-bottom: .5rem;
+}
+.slide h3 {
+  font-size: clamp(1.35rem, 3.2vw, 2rem);
+  margin-bottom: .6rem;
+}
+.slide p { margin-bottom: 0; opacity: .94; max-width: 44ch; }
+
+.slide-sage  { background: var(--rb-sage); }
+.slide-clay  { background: var(--rb-clay); }
+.slide-forest{ background: var(--rb-forest); }
+
+/* Os indicadores passam por TRÊS fundos diferentes (sálvia, terracota e verde
+   profundo), então não podem ser terracota: precisam ser claros e neutros. */
+.carousel-indicators [data-bs-target] {
+  width: 26px; height: 3px; border: 0;
+  background-color: rgba(251, 250, 245, .5);
+  opacity: 1;
+}
+.carousel-indicators .active {
+  background-color: var(--rb-paper);
+}
+
+/* ---------- 8. Pilares (texto, sem caixas) --------------------------- */
+.pillar-num {
+  font-size: 2.1rem;
+  color: var(--rb-line);
+  margin-bottom: .35rem;
+  line-height: 1;
+}
+.pillar-title { font-size: 1.2rem; margin-bottom: .4rem; }
+.pillar-text  { color: var(--rb-ink-soft); margin-bottom: 0; }
+
+/* ---------- 9. Cards de peça ----------------------------------------- */
+.piece-card {
+  border: 1px solid var(--rb-line);
+  border-radius: var(--rb-radius);
+  overflow: hidden;
+  background: var(--rb-paper);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.piece-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(30,42,34,.09);
+}
+.piece-swatch { height: 148px; position: relative; }
+.piece-swatch::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.10) 0 2px, transparent 2px 10px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 2px, transparent 2px 10px);
+}
+.swatch-essential { background: #c9cfc0; }   /* cinza-verde: malha reciclada */
+.swatch-linen     { background: #d9cdb4; }   /* cru: linho */
+.swatch-patch {
+  background:
+    linear-gradient(135deg, #8a9b86 0 34%, #b4653a 34% 62%, #d9cdb4 62% 100%);
+}                                            /* retalhos: três cores costuradas */
+
+.piece-name  { margin: .6rem 0 .35rem; }
+.piece-desc  { color: var(--rb-ink-soft); font-size: .95rem; }
+.piece-price { font-size: 1.3rem; margin-bottom: .9rem; }
+.piece-price-note { font-family: var(--rb-font-body); font-size: .78rem; color: var(--rb-ink-soft); margin-left: .35rem; }
+
+.badge-fiber {
+  background: var(--rb-sand);
+  color: var(--rb-ink-soft);
+  border: 1px solid var(--rb-line);
+  font-weight: 600;
+  font-size: .72rem;
+  letter-spacing: .04em;
+  padding: .35rem .5rem;
+  margin-bottom: .5rem;
+}
+
+/* ---------- 10. Modal ------------------------------------------------ */
+.modal-content { border-radius: var(--rb-radius); border-color: var(--rb-line); }
+.modal-sub {
+  font-family: var(--rb-font-body);
+  font-size: .76rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--rb-clay);
+  margin-bottom: .3rem;
+}
+
+/* ---------- 11. Metas (progress) ------------------------------------- */
+.goal { margin-bottom: 1.6rem; }
+.goal-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-weight: 600; margin-bottom: .4rem;
+}
+.goal-val { font-family: var(--rb-font-display); font-size: 1.15rem; color: var(--rb-clay); }
+.progress {
+  height: 6px;
+  background: var(--rb-line);
+  border-radius: 0;
+}
+.progress-bar { background: var(--rb-forest); }
+
+/* ---------- 12. Accordion -------------------------------------------- */
+.rebrote-accordion .accordion-item {
+  background: transparent;
+  border-color: var(--rb-line);
+}
+.rebrote-accordion .accordion-button {
+  background: transparent;
+  font-weight: 600;
+  color: var(--rb-ink);
+  padding-left: 0;
+  box-shadow: none;
+}
+.rebrote-accordion .accordion-button:not(.collapsed) {
+  color: var(--rb-clay);
+  background: transparent;
+}
+.rebrote-accordion .accordion-button::after {
+  /* seta do Bootstrap recolorida para terracota */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23b4653a'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/%3e%3c/svg%3e");
+}
+.rebrote-accordion .accordion-body {
+  color: var(--rb-ink-soft);
+  padding-left: 0;
+}
+
+/* ---------- 13. Formulário de cadastro ------------------------------- */
+.section-form { background: var(--rb-forest); }
+.section-form .eyebrow { color: var(--rb-clay); }
+.section-form .section-title,
+.section-form .section-sub { color: var(--rb-paper); }
+.section-form .section-sub { opacity: .82; }
+
+.form-card { padding: 0; }
+.form-card .form-label { color: var(--rb-paper); font-weight: 600; }
+.form-card .form-control,
+.form-card .form-select {
+  border-radius: var(--rb-radius);
+  border: 1px solid rgba(251,250,245,.28);
+  background: rgba(251,250,245,.06);
+  color: var(--rb-paper);
+  padding: .7rem .85rem;
+}
+.form-card .form-control::placeholder { color: rgba(251,250,245,.45); }
+.form-card .form-control:focus,
+.form-card .form-select:focus {
+  background: rgba(251,250,245,.1);
+  color: var(--rb-paper);
+  border-color: var(--rb-clay);
+  box-shadow: none;
+}
+.form-card .form-select option { color: var(--rb-ink); }
+.form-card .form-check-label { color: rgba(251,250,245,.86); font-size: .95rem; }
+.form-card .invalid-feedback { color: #f0b7a0; }
+.form-card .form-answer { color: rgba(251,250,245,.62); font-size: .85rem; }
+.form-card .alert-success {
+  background: rgba(251,250,245,.1);
+  border-color: rgba(251,250,245,.3);
+  color: var(--rb-paper);
+}
+.form-card .alert-success code { color: var(--rb-clay); }
+
+/* ---------- 14. Rodapé ---------------------------------------------- */
+.rebrote-footer {
+  background: #16211a;
+  color: rgba(251,250,245,.78);
+  padding: clamp(2.5rem, 6vw, 4rem) 0 1.5rem;
+  font-size: .93rem;
+}
+.footer-brand {
+  font-family: var(--rb-font-display);
+  font-size: 1.3rem;
+  color: var(--rb-paper);
+  display: flex; align-items: center; gap: .5rem;
+}
+.footer-h {
+  font-family: var(--rb-font-body);
+  font-size: .76rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: rgba(251,250,245,.55);
+  margin-bottom: .75rem;
+}
+.footer-list { list-style: none; padding: 0; margin: 0; }
+.footer-list li { margin-bottom: .35rem; }
+.footer-list a { color: rgba(251,250,245,.88); text-decoration: none; }
+.footer-list a:hover { color: #fff; text-decoration: underline; }
+.footer-text { color: rgba(251,250,245,.66); }
+.footer-end {
+  border-top: 1px solid rgba(251,250,245,.14);
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  font-size: .82rem;
+  color: rgba(251,250,245,.5);
+}
+
+/* ---------- 15. Movimento ------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .piece-card { transition: none; }
+  .carousel-item { transition: none !important; }
+}
+
+/* ---------- 16. Ajustes finos por breakpoint ------------------------ */
+@media (max-width: 991.98px) {
+  .rebrote-nav .navbar-collapse {
+    padding: .75rem 0 .5rem;
+    border-top: 1px solid rgba(251,250,245,.14);
+    margin-top: .6rem;
+  }
+  .rebrote-nav .btn-accent { display: inline-block; margin-top: .5rem; }
+}
+@media (max-width: 575.98px) {
+  .hero-badge { position: static; margin: clamp(.75rem, 3vw, 1.5rem); display: inline-flex; }
+  .hero-panel { aspect-ratio: 3 / 2; }
+}

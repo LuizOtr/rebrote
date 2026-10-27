@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rebrote">
+  <!-- Fundo verde profundo: fica visível tanto em aba clara quanto escura -->
+  <rect width="64" height="64" rx="8" fill="#24402f"/>
+  <!-- O broto: o mesmo losango terracota da marca -->
+  <rect x="22" y="22" width="20" height="20" fill="#b4653a" transform="rotate(45 32 32)"/>
+</svg>

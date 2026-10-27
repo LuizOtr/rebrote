@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rebrote — Moda que volta ao ciclo</title>
+<meta name="description" content="Rebrote é uma marca fictícia de roupas sustentáveis. Landing page responsiva em HTML + CSS com Bootstrap: navbar, carousel, cards, acordeão e formulário de cadastro.">
+<meta name="author" content="Atividade 10 — Bootstrap — Prof. Lucas José de Souza">
+
+<!-- Fontes (com fallback de sistema, caso não haja internet na apresentação) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Bootstrap 5.3.8 (CDN) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Ícone da aba do navegador -->
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<!-- Nosso CSS -->
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body id="topo">
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- =====================================================================
+     COMPONENTE 1 — NAVBAR (menu que vira "hambúrguer" no celular)
+     ===================================================================== -->
+<nav class="navbar navbar-expand-lg sticky-top rebrote-nav" aria-label="Navegação principal">
+  <div class="container">
+    <a class="navbar-brand" href="#topo">
+      <span class="brand-mark" aria-hidden="true"></span>
+      Rebrote
+    </a>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+            aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu de navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menuPrincipal">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#marca">A marca</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pecas">Peças</a></li>
+        <li class="nav-item"><a class="nav-link" href="#impacto">Impacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#perguntas">Perguntas</a></li>
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-accent btn-sm px-3" href="#cadastro">Ganhar cupom</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="conteudo">
+
+  <!-- ===================================================================
+       ABERTURA — uma ideia por seção (superfície "Decide/Learn")
+       =================================================================== -->
+  <header class="hero">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6">
+          <p class="eyebrow">Marca fictícia · Atividade de Bootstrap</p>
+          <h1 class="display-4 hero-title">Moda que <em>volta</em> ao ciclo.</h1>
+          <p class="lead hero-lead">
+            Cada peça da Rebrote nasce de fibra reciclada ou de algodão rastreado,
+            é costurada a menos de 200&nbsp;km de quem vai vestir e sai numa embalagem
+            sem plástico virgem.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a class="btn btn-accent btn-lg" href="#cadastro">Quero meu cupom de 10%</a>
+            <a class="btn btn-outline-ink btn-lg" href="#pecas">Ver as peças</a>
+          </div>
+          <p class="hero-note mt-4 mb-0">
+            Projeto de estudo: não há loja real, nem venda, nem dados de terceiros.
+          </p>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-panel" aria-hidden="true">
+            <div class="weave weave-a"></div>
+            <div class="weave weave-b"></div>
+            <div class="hero-badge">
+              <span class="hero-badge-num">0</span>
+              <span class="hero-badge-txt">plástico virgem<br>nas embalagens</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       COMPONENTE 2 — CAROUSEL (3 painéis que trocam sozinhos e por clique)
+       =================================================================== -->
+  <section class="section-tight" aria-labelledby="t-carousel">
+    <div class="container">
+      <h2 class="section-title visually-hidden" id="t-carousel">Três compromissos da marca</h2>
+
+      <div id="carouselRebrote" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselRebrote" data-bs-slide-to="0"
+                  class="active" aria-current="true" aria-label="Compromisso 1: fibra rastreada"></button>
+          <button type="button" data-bs-target="#carouselRebrote" data-bs-slide-to="1"
+                  aria-label="Compromisso 2: costura local"></button>
+          <button type="button" data-bs-target="#carouselRebrote" data-bs-slide-to="2"
+                  aria-label="Compromisso 3: logística reversa"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="slide slide-sage">
+              <div class="slide-inner">
+                <p class="slide-step">1 de 3</p>
+                <h3>Fibra com nome e endereço</h3>
+                <p>Todo algodão vem de cooperativas cadastradas: sabemos a fazenda, o lote e a safra.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide slide-clay">
+              <div class="slide-inner">
+                <p class="slide-step">2 de 3</p>
+                <h3>Costura a menos de 200 km</h3>
+                <p>Duas oficinas parceiras no estado: menos transporte, mais gente com nome e rosto.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide slide-forest">
+              <div class="slide-inner">
+                <p class="slide-step">3 de 3</p>
+                <h3>A peça velha vira fibra nova</h3>
+                <p>Devolva a Rebrote desgastada: ela volta como fio, e você ganha crédito na próxima troca.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselRebrote" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselRebrote" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Próximo</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       A MARCA — três colunas de TEXTO (sem cards, para não repetir o
+       mesmo grid de caixas logo depois dos cards de produto)
+       =================================================================== -->
+  <section class="section" id="marca" aria-labelledby="t-marca">
+    <div class="container">
+      <div class="row gx-5 gy-4">
+        <div class="col-12 col-md-4">
+          <p class="pillar-num" aria-hidden="true">01</p>
+          <h3 id="t-marca" class="pillar-title">Fibras rastreadas</h3>
+          <p class="pillar-text">Algodão certificado, linho de reflorestamento e poliéster de garrafa PET.</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <p class="pillar-num" aria-hidden="true">02</p>
+          <h3 class="pillar-title">Costura local</h3>
+          <p class="pillar-text">Salário fixo, jornada declarada e produção em lotes pequenos, sem sobra.</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <p class="pillar-num" aria-hidden="true">03</p>
+          <h3 class="pillar-title">Embalagem limpa</h3>
+          <p class="pillar-text">Papel reciclado, fita de papel e etiqueta de algodão cru — zero plástico virgem.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       COMPONENTE 3 — CARDS (as peças) + COMPONENTE 4 — MODAL
+       Cada card tem um botão que abre o MESMO modal, trocando o conteúdo
+       via JavaScript (data-* attributes).
+       =================================================================== -->
+  <section class="section section-alt" id="pecas" aria-labelledby="t-pecas">
+    <div class="container">
+      <div class="row align-items-end mb-4 mb-md-5">
+        <div class="col-md-7">
+          <p class="eyebrow">Coleção Recomeço</p>
+          <h2 class="section-title" id="t-pecas">Três peças, três origens</h2>
+        </div>
+        <div class="col-md-5">
+          <p class="section-sub mb-0">Preços e produtos são fictícios: fazem parte do exercício da marca.</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card piece-card h-100">
+            <div class="piece-swatch swatch-essential" aria-hidden="true"></div>
+            <div class="card-body">
+              <span class="badge badge-fiber">malha reciclada</span>
+              <h3 class="piece-name h5">Camiseta Essencial</h3>
+              <p class="piece-desc">Malha 100% algodão reciclado, gola reforçada e tingimento a frio.</p>
+              <p class="piece-price">R$ 89<span class="piece-price-note">· preço fictício</span></p>
+              <button class="btn btn-outline-ink btn-sm" data-bs-toggle="modal" data-bs-target="#modalPeca"
+                      data-peca="Camiseta Essencial"
+                      data-origem="Malha de retalhos de confecção coletados em São Paulo, fiada em Santa Catarina e tingida a frio para gastar 70% menos água que o tingimento tradicional."
+                      data-impacto="Economiza cerca de 2.700 litros de água por peça em relação a uma camiseta de algodão convencional (estimativa do exercício).">
+                De onde vem esta peça
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card piece-card h-100">
+            <div class="piece-swatch swatch-linen" aria-hidden="true"></div>
+            <div class="card-body">
+              <span class="badge badge-fiber">linho de reflorestamento</span>
+              <h3 class="piece-name h5">Calça Linho Reflorestado</h3>
+              <p class="piece-desc">Linho de plantio de reflorestamento, cintura ajustável e zero elastano.</p>
+              <p class="piece-price">R$ 249<span class="piece-price-note">· preço fictício</span></p>
+              <button class="btn btn-outline-ink btn-sm" data-bs-toggle="modal" data-bs-target="#modalPeca"
+                      data-peca="Calça Linho Reflorestado"
+                      data-origem="Linho de uma cooperativa de reflorestamento no Paraná. A fibra é colhida a cada três anos e a área é replantada com a mesma espécie."
+                      data-impacto="Sem elastano, a peça é monofibra: pode ser desfiada e virar fio novo sem separação química.">
+                De onde vem esta peça
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card piece-card h-100">
+            <div class="piece-swatch swatch-patch" aria-hidden="true"></div>
+            <div class="card-body">
+              <span class="badge badge-fiber">retalhos de fim de lote</span>
+              <h3 class="piece-name h5">Jaqueta Retalhos</h3>
+              <p class="piece-desc">Cada jaqueta é única: costurada com sobras de outras coleções.</p>
+              <p class="piece-price">R$ 319<span class="piece-price-note">· preço fictício</span></p>
+              <button class="btn btn-outline-ink btn-sm" data-bs-toggle="modal" data-bs-target="#modalPeca"
+                      data-peca="Jaqueta Retalhos"
+                      data-origem="Sobras de tecido de lotes anteriores, separadas por cor e costuradas à mão em pequenas séries. Duas jaquetas nunca são iguais."
+                      data-impacto="Aproveita material que normalmente seria descartado pela indústria: cerca de 3 m² de tecido por jaqueta.">
+                De onde vem esta peça
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal único, reaproveitado pelos 3 cards -->
+  <div class="modal fade" id="modalPeca" tabindex="-1" aria-labelledby="modalPecaTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="modalPecaTitulo">Peça</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <h3 class="modal-sub">Origem</h3>
+          <p id="modalPecaOrigem">—</p>
+          <h3 class="modal-sub">Por que isso importa</h3>
+          <p id="modalPecaImpacto" class="mb-0">—</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-ink btn-sm" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       COMPONENTE 5 — PROGRESS BARS (metas da marca)
+       Mostradas como METAS, não como resultado já alcançado.
+       =================================================================== -->
+  <section class="section" id="impacto" aria-labelledby="t-impacto">
+    <div class="container">
+      <div class="row gx-5 gy-4 align-items-start">
+        <div class="col-12 col-lg-5">
+          <p class="eyebrow">Metas até 2027</p>
+          <h2 class="section-title" id="t-impacto">O que ainda falta</h2>
+          <p class="section-sub">
+            São metas do exercício, não resultados auditados. Uma marca que só fala de
+            conquistas esconde a parte difícil — e a parte difícil é o que interessa.
+          </p>
+        </div>
+        <div class="col-12 col-lg-7">
+          <div class="goal">
+            <div class="goal-head">
+              <span>Algodão com origem rastreada</span><span class="goal-val">84%</span>
+            </div>
+            <div class="progress" role="progressbar" aria-label="Algodão com origem rastreada"
+                 aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" style="width:84%"></div>
+            </div>
+          </div>
+          <div class="goal">
+            <div class="goal-head">
+              <span>Energia renovável nas oficinas</span><span class="goal-val">61%</span>
+            </div>
+            <div class="progress" role="progressbar" aria-label="Energia renovável nas oficinas"
+                 aria-valuenow="61" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" style="width:61%"></div>
+            </div>
+          </div>
+          <div class="goal">
+            <div class="goal-head">
+              <span>Peças devolvidas e refiadas</span><span class="goal-val">32%</span>
+            </div>
+            <div class="progress" role="progressbar" aria-label="Peças devolvidas e refiadas"
+                 aria-valuenow="32" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" style="width:32%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       COMPONENTE 6 — ACCORDION (perguntas frequentes)
+       =================================================================== -->
+  <section class="section section-alt" id="perguntas" aria-labelledby="t-perguntas">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-12 col-lg-4">
+          <p class="eyebrow">Dúvidas</p>
+          <h2 class="section-title" id="t-perguntas">Perguntas que sempre chegam</h2>
+        </div>
+        <div class="col-12 col-lg-8">
+          <div class="accordion accordion-flush rebrote-accordion" id="accPerguntas">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#resp1" aria-expanded="true" aria-controls="resp1">
+                  Roupa reciclada é mais fraca?
+                </button>
+              </h3>
+              <div id="resp1" class="accordion-collapse collapse show" data-bs-parent="#accPerguntas">
+                <div class="accordion-body">
+                  Depende do fio. Fibra reciclada curta perde resistência, então misturamos
+                  com fibra virgem rastreada na proporção que segura o uso diário. O teste de
+                  resistência fica no rótulo de cada lote.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#resp2" aria-expanded="false" aria-controls="resp2">
+                  Como vocês medem a água economizada?
+                </button>
+              </h3>
+              <div id="resp2" class="accordion-collapse collapse" data-bs-parent="#accPerguntas">
+                <div class="accordion-body">
+                  Com o consumo declarado por cada oficina, comparado ao tingimento
+                  convencional a quente. É uma estimativa — e está marcada como estimativa,
+                  não como medição auditada.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#resp3" aria-expanded="false" aria-controls="resp3">
+                  O que vocês fazem com a peça velha?
+                </button>
+              </h3>
+              <div id="resp3" class="accordion-collapse collapse" data-bs-parent="#accPerguntas">
+                <div class="accordion-body">
+                  Peça em bom estado volta para a troca; peça desgastada é desfiada e
+                  reaproveitada como fio. Se a peça é monofibra, o processo é mecânico — sem
+                  separação química.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#resp4" aria-expanded="false" aria-controls="resp4">
+                  Por que a marca é chamada Rebrote?
+                </button>
+              </h3>
+              <div id="resp4" class="accordion-collapse collapse" data-bs-parent="#accPerguntas">
+                <div class="accordion-body">
+                  Porque rebrotar é voltar a brotar do que já existia. A ideia do nome é essa:
+                  a roupa não termina quando você para de usar.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       COMPONENTE 7 — FORMULÁRIO DE CADASTRO (obrigatório no trabalho)
+       Validação com classes do Bootstrap + JavaScript + localStorage.
+       =================================================================== -->
+  <section class="section section-form" id="cadastro" aria-labelledby="t-cadastro">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8 col-xl-7">
+          <div class="form-card">
+            <p class="eyebrow">Cupom de 10%</p>
+            <h2 class="section-title" id="t-cadastro">Entre na lista da primeira leva</h2>
+            <p class="section-sub">
+              Cada coleção sai em lote pequeno. Quem está na lista recebe o aviso um dia antes
+              e o cupom de 10% na primeira troca.
+            </p>
+
+            <form id="formCadastro" class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label for="nome" class="form-label">Nome completo</label>
+                  <input type="text" class="form-control" id="nome" name="nome"
+                         autocomplete="name" minlength="3" required>
+                  <div class="invalid-feedback">Digite seu nome (pelo menos 3 letras).</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="email" class="form-label">E-mail</label>
+                  <input type="email" class="form-control" id="email" name="email"
+                         autocomplete="email" placeholder="voce@exemplo.com" required>
+                  <div class="invalid-feedback">Digite um e-mail válido.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="cidade" class="form-label">Cidade</label>
+                  <input type="text" class="form-control" id="cidade" name="cidade"
+                         autocomplete="address-level2" required>
+                  <div class="invalid-feedback">Diga de que cidade você fala.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="interesse" class="form-label">Tenho interesse em</label>
+                  <select class="form-select" id="interesse" name="interesse" required>
+                    <option value="" selected disabled>Escolha uma opção</option>
+                    <option>Camisetas e básicos</option>
+                    <option>Calças e alfaiataria leve</option>
+                    <option>Jaquetas e terceira peça</option>
+                    <option>Só quero acompanhar as novidades</option>
+                  </select>
+                  <div class="invalid-feedback">Escolha uma opção da lista.</div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="sim" id="consentimento" required>
+                    <label class="form-check-label" for="consentimento">
+                      Aceito receber e-mails da Rebrote e sei que posso sair da lista quando quiser.
+                    </label>
+                    <div class="invalid-feedback">É preciso marcar o aceite para continuar.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-3 align-items-center mt-4">
+                <button type="submit" class="btn btn-accent btn-lg">Quero o cupom</button>
+                <button type="button" class="btn btn-link btn-reset" id="limparForm">Limpar dados salvos</button>
+              </div>
+
+              <!-- Mensagem de sucesso (lida por leitores de tela) -->
+              <div class="alert alert-success mt-4 d-none" id="avisoSucesso" role="alert" aria-live="polite">
+                <strong>Tudo certo!</strong> Seu cadastro foi registrado neste navegador.
+                O cupom <code>REBROTE10</code> é o seu ponto de partida.
+              </div>
+
+              <p class="form-answer mt-3 mb-0">
+                Estudo acadêmico: este formulário <strong>não envia nada para servidor nenhum</strong>.
+                Os dados ficam apenas no seu navegador (localStorage) e podem ser apagados no botão acima.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- =====================================================================
+     RODAPÉ
+     ===================================================================== -->
+<footer class="rebrote-footer">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-12 col-md-5">
+        <p class="footer-brand"><span class="brand-mark" aria-hidden="true"></span> Rebrote</p>
+        <p class="footer-text">
+          Marca fictícia criada para a Atividade 10 de Bootstrap.<br>
+          Tema: Consumo Responsável e Moda Sustentável (Agenda 2030 — ODS 12).
+        </p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h2 class="footer-h">Navegar</h2>
+        <ul class="footer-list">
+          <li><a href="#marca">A marca</a></li>
+          <li><a href="#pecas">Peças</a></li>
+          <li><a href="#impacto">Impacto</a></li>
+          <li><a href="#cadastro">Cupom</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-4">
+        <h2 class="footer-h">Sobre o trabalho</h2>
+        <ul class="footer-list">
+          <li>Bootstrap 5.3.8 · HTML + CSS + JS</li>
+          <li>Componentes: navbar, carousel, cards, modal, progress, accordion e formulário</li>
+          <li>Professor Lucas José de Souza</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-end mb-0">Feito para estudo. Nenhum dado real, nenhuma venda, nenhuma promessa verdadeira.</p>
+  </div>
+</footer>
+
+<!-- Bootstrap (JS com Popper, necessário para navbar, carousel, modal e accordion) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Nosso JS -->
+<script src="assets/js/main.js"></script>
+</body>
+</html>
